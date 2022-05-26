@@ -7,7 +7,7 @@ interface Data {
 }
 
 const Charts = () => {
-  const [data, setData] = useState([]);
+  const [dataTVL, setDataTVL] = useState([]);
   const [dataAPR, setDataAPR] = useState([]);
 
   useEffect(() => {
@@ -30,14 +30,14 @@ const Charts = () => {
           };
         });
         setDataAPR(newDataAPRParse);
-        setData(newData);
+        setDataTVL(newData);
       })
       .catch((error) => {
         console.log("fetch data failed", error);
       });
   };
   const configTVL = {
-    data,
+    data: dataTVL,
     xField: "date",
     yField: "value",
     xAxis: {
